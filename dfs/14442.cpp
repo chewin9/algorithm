@@ -37,7 +37,7 @@ void bfs(int ypos, int xpos, int bre, int cnt) {
 				q.push({ {ny,nx},{nb, now.second.second+1} });
 				visit[ny][nx][nb] = true;
 			}
-			if (arr[ny][nx] == 1 && visit[ny][nx][nb] == false && nb != 0) {
+			if (arr[ny][nx] == 1 && visit[ny][nx][nb-1] == false && nb != 0) {
 				q.push({ {ny,nx},{nb - 1,now.second.second+1} });
 				visit[ny][nx][nb - 1] = true;
 			}
