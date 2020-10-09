@@ -9,7 +9,7 @@ vector<pii> bus[1002];
 int N, M, K;
 priority_queue<pii, vector<pii>, greater<pii> > pq;
 priority_queue<int> ans[1002];
-
+bool visit[1002];
 void djk(int pos) {
 	ans[pos].push(0);
 	pq.push({ 0,pos });
@@ -26,6 +26,7 @@ void djk(int pos) {
 		for (int i = 0; i < bus[here].size(); i++) {
 			int next = bus[here].at(i).second;
 			int nextcost = bus[here].at(i).first + cost;
+
 
 			if (ans[next].size() < K) {
 				ans[next].push(nextcost);
@@ -51,6 +52,7 @@ int main() {
 	}
 
 	djk(1);
+
 
 	for (int i = 1; i < N + 1; i++) {
 		if (ans[i].size() != K)
