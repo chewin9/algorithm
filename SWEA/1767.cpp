@@ -20,8 +20,7 @@ const int dx[] = { 0,-1,0,1,0 };
 int choose[13];
 int max_core = -1e9;
 int ans = 1e9;
-int all = 0;
-int qqqq = 0;
+
 void check_dir(int ypos, int xpos) {
 	bool check = true;
 	int cnt = v.size();
@@ -129,16 +128,13 @@ void dfs(int pos, int dir, int cnt) {
 		for (int i = 0; i < v.size(); i++) {
 			printf("%2d", choose[i]);
 		}*/
-		all++;
 		int aa = 0;
 		for (int i = 0; i < v.size(); i++) {
 			if (choose[i] != 4)
 				aa++;
 		}
-		if (aa >= max_core) {
-			qqqq++;
+		if (aa >= max_core)
 			get_ans();
-		}
 
 		return;
 	}
@@ -153,7 +149,7 @@ void dfs(int pos, int dir, int cnt) {
 
 int main() {
 
-	//freopen("sample_input.txt", "r", stdin);
+	freopen("sample_input.txt", "r", stdin);
 
 	scanf("%d", &T);
 
@@ -164,14 +160,12 @@ int main() {
 		v.clear();
 		max_core = -1e9;
 		ans = 1e9;
-		all = 0;
-		qqqq = 0;
 		//========================================
 		scanf("%d", &N);
-		for (int i = 0; i < N; i++) 
+		for (int i = 0; i < N; i++)
 			for (int j = 0; j < N; j++)
 				scanf("%d", &arr[i][j]);
-		
+
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 				if (arr[i][j] == 1) {
@@ -181,7 +175,7 @@ int main() {
 				}
 			}
 		}
-		
+
 		/*for (int i = 0; i < v.size(); i++) {
 			printf("core {%d %d} =", v.at(i).first, v.at(i).second);
 			for (int j = 0; j < 5; j++) {
@@ -198,7 +192,7 @@ int main() {
 		if (ans == 1e9)
 			printf("#%d %d\n", t, 0);
 		else
-			printf("#%d %d %d %d\n", t, ans, all, qqqq);
+			printf("#%d %d\n", t, ans);
 	}
 
 	return 0;
