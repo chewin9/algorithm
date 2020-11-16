@@ -9,28 +9,25 @@ int N, M;
 int main() {
 	scanf("%d %d", &N, &M);
 
-	for (int i = 1; i < N + 1; i++) {
+	for (int i = 0; i < N; i++)
 		scanf("%d", &arr[i]);
-	}
 
-	int sum = 0;
-	int left, right;
-	left = right = 1;
-	int cnt = 0;
+	int start, end, sum,ans;
+	start = end = sum = ans = 0;
 
 	while (1) {
-		if (sum >= M)
-			sum -= arr[left++];
-		else if (right == N+1)
+		if (sum > M)
+			sum -= arr[start++];
+		else if (end == N)
 			break;
 		else
-			sum += arr[right++];
+			sum += arr[end++];
 
 		if (sum == M)
-			cnt++;
+			ans++;
 	}
 
-	printf("%d\n", cnt);
+	printf("%d\n", ans);
 
 
 	return 0;

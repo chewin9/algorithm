@@ -330,25 +330,25 @@ int main() {
 	int a, ypos, xpos;
 
 	for (int t = 1; t < N + 1; t++) {
-		//printf("INPUT %d====================================\n", t);
+		printf("INPUT %d====================================\n", t);
 		scanf("%d %d %d", &a, &ypos, &xpos);
 
 		put_block(a,ypos,xpos,t);
 
-		//printf("===============put_block====================\n");
-		//show();
+		printf("===============put_block====================\n");
+		show();
 		gravity();
 		get_point();
 		gravity();
-		//printf("===============gravity======================\n");
-		//show();
-		//printf("===============check_side===================\n");
+		printf("===============gravity======================\n");
+		show();
+		printf("===============check_side===================\n");
 		check_side();
-		//show();
+		show();
 		gravity();
-		//printf("===============get_point====================\n");
+		printf("===============get_point====================\n");
 		get_point();
-		//show();
+		show();
 	}
 
 	get_answer();
